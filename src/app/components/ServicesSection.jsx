@@ -1,8 +1,11 @@
-import dbConnect from "@/lib/dbConnection";
+import dbConnect, { collectionAllName } from "@/lib/dbConnection";
 import Image from "next/image";
+import Link from "next/link";
 
 const ServicesSection = async () => {
-  const data = await dbConnect("services").find({}).toArray();
+  const data = await dbConnect(collectionAllName.serviceCollection)
+    .find({})
+    .toArray();
   return (
     <div className="grid grid-cols-3 gap-5 my-16">
       {data.map((service) => {
@@ -23,7 +26,9 @@ const ServicesSection = async () => {
                 Price: ${service.price}
               </p>
               <div className="card-actions justify-end">
-                <button className="btn btn-primary">Buy Now</button>
+                <Link href={`/services/${service._id}`}>
+                  <button className="btn btn-primary">Details</button>
+                </Link>
               </div>
             </div>
           </div>

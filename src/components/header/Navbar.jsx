@@ -57,7 +57,13 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navMenu()}</ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end space-x-4">
+        <Link className="btn btn-sm" href={"/login"}>
+          Login
+        </Link>
+        <Link className="btn btn-sm" href={"/register"}>
+          register
+        </Link>
         <button className="btn btn-outline">Appointment</button>
       </div>
     </div>

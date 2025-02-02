@@ -3,6 +3,11 @@
 
 import { MongoClient, ServerApiVersion } from "mongodb";
 
+export const collectionAllName = {
+  serviceCollection: "services",
+  userCollection: "users",
+};
+
 function dbConnect(collectionName) {
   const uri = process.env.MONGODB_URL;
   const client = new MongoClient(uri, {
